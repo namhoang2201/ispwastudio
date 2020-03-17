@@ -5,7 +5,6 @@ if ($url) {
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => $url,
-        CURLOPT_USERAGENT => 'simi',
         CURLOPT_SSL_VERIFYPEER => false
     ));
     $resp = curl_exec($curl);

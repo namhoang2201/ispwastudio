@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css"/>
 </head>
 <body>
+
 <div id="root">
 
     <div class="container">
@@ -28,35 +29,37 @@
                     </div>
                 </div>
                 <div class="myform">
-                    <form id="form-check" method="post">
-                        <fieldset>
-                            <label for="urlInput">Full Website URL:</label>
-                            <input id="urlInput" name="url" type="url"
-                                   placeholder="https://" autocomplete="off" required/>
-                        </fieldset>
-                        <br/>
-                        <button type="submit" class="btn btn-default btn-check">Check Now</button>
-                        <!-- Loading -->
-                        <div class="loading">
-                            <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px"
-                                 viewBox="0 0 128 128" xml:space="preserve"><link xmlns="" type="text/css" id="dark-mode"
-                                                                                  rel="stylesheet" href=""/>
-                                <style xmlns="" type="text/css" id="dark-mode-custom-style"/>
-                                <g transform="rotate(45 64 64)">
-                                    <circle cx="16" cy="64" r="16" fill="#000"/>
-                                    <circle cx="16" cy="64" r="14.344" fill="#000" transform="rotate(45 64 64)"/>
-                                    <circle cx="16" cy="64" r="12.531" fill="#000" transform="rotate(90 64 64)"/>
-                                    <circle cx="16" cy="64" r="10.75" fill="#000" transform="rotate(135 64 64)"/>
-                                    <circle cx="16" cy="64" r="10.063" fill="#000" transform="rotate(180 64 64)"/>
-                                    <circle cx="16" cy="64" r="8.063" fill="#000" transform="rotate(225 64 64)"/>
-                                    <circle cx="16" cy="64" r="6.438" fill="#000" transform="rotate(270 64 64)"/>
-                                    <circle cx="16" cy="64" r="5.375" fill="#000" transform="rotate(315 64 64)"/>
-                                    <animateTransform attributeName="transform" type="rotate"
-                                                      values="0 64 64;315 64 64;270 64 64;225 64 64;180 64 64;135 64 64;90 64 64;45 64 64"
-                                                      calcMode="discrete" dur="720ms" repeatCount="indefinite"/>
-                                </g></svg>
-                        </div>
+                    <form id="form-check" method="post"
+                    ">
+                    <fieldset>
+                        <label for="urlInput">Full Website URL:</label>
+                        <input id="urlInput" name="url" type="url"
+                               placeholder="https://" autocomplete="off" required/>
+                    </fieldset>
+                    <br/>
+                    <button type="submit" class="btn btn-default btn-check">Check Now</button>
+                    <!-- Loading -->
+                    <div class="loading">
+                        <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px"
+                             viewBox="0 0 128 128" xml:space="preserve"><link xmlns="" type="text/css"
+                                                                              id="dark-mode"
+                                                                              rel="stylesheet" href=""/>
+                            <style xmlns="" type="text/css" id="dark-mode-custom-style"/>
+                            <g transform="rotate(45 64 64)">
+                                <circle cx="16" cy="64" r="16" fill="#000"/>
+                                <circle cx="16" cy="64" r="14.344" fill="#000" transform="rotate(45 64 64)"/>
+                                <circle cx="16" cy="64" r="12.531" fill="#000" transform="rotate(90 64 64)"/>
+                                <circle cx="16" cy="64" r="10.75" fill="#000" transform="rotate(135 64 64)"/>
+                                <circle cx="16" cy="64" r="10.063" fill="#000" transform="rotate(180 64 64)"/>
+                                <circle cx="16" cy="64" r="8.063" fill="#000" transform="rotate(225 64 64)"/>
+                                <circle cx="16" cy="64" r="6.438" fill="#000" transform="rotate(270 64 64)"/>
+                                <circle cx="16" cy="64" r="5.375" fill="#000" transform="rotate(315 64 64)"/>
+                                <animateTransform attributeName="transform" type="rotate"
+                                                  values="0 64 64;315 64 64;270 64 64;225 64 64;180 64 64;135 64 64;90 64 64;45 64 64"
+                                                  calcMode="discrete" dur="720ms" repeatCount="indefinite"/>
+                            </g></svg>
+                    </div>
                     </form>
                 </div>
 
@@ -73,7 +76,8 @@
                             </div>
                             <div class="modal-body">
                                 <img class="img-responsive" src="./img/true.png" alt="true-img">
-                                <p><span class="website-true"></span> <span class="space">&nbsp</span> is PWA STUDIO.</p>
+                                <p><span class="website-true"></span> <span class="space">&nbsp</span> is PWA STUDIO.
+                                </p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>

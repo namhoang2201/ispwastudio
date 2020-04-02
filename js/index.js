@@ -4,22 +4,6 @@ $(document).ready(function () {
         $('.loading').css('display', 'block');
         $('#urlInput').prop('readonly', true);
         var url = $('#urlInput').val();
-        if (url.substring(url.length - 1) !== '/') {
-            url += '/';
-        }
-
-        // Make url has template: https://example.com/  OR http://example.com/
-        if (url.includes('https://')) {
-            let subUrl = url.substring(8);
-            let positionLastSlashes = subUrl.indexOf('/');
-            let compactUrl = subUrl.substring(0, positionLastSlashes + 1);
-            url = "https://" + compactUrl;
-        } else if (url.includes('http://')) {
-            let subUrl = url.substring(7);
-            let positionLastSlashes = subUrl.indexOf('/');
-            let compactUrl = subUrl.substring(0, positionLastSlashes + 1);
-            url = 'http://' + compactUrl;
-        }
 
         $.ajax({
             url: 'analysis.php?url=' + url,

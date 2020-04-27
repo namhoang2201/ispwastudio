@@ -1,23 +1,50 @@
 <?php
 $url = isset($_GET["url"]) ? $_GET["url"] : null;
-
 $ispwaStudio = false;
+// Normal case
 $parseUrl = parse_url($url);
-if (isset($parseUrl['path'])) {
-    if ($parseUrl['path'] !== '/') {
-        $ispwaStudio = checkPwaStudio(str_replace($parseUrl['path'], '/', $url));
-    } else {
-        $ispwaStudio = checkPwaStudio($url);
+if (!$ispwaStudio) {
+    if (isset($parseUrl['path'])) {
+        if ($parseUrl['path'] !== '/') {
+            // if url is: https://abc.com/xyz/def/...  -> check at: https://abc.com/
+            $ispwaStudio = checkPwaStudio(str_replace($parseUrl['path'], '/', $url));
+        }
     }
 }
 
 if (!$ispwaStudio) {
+    // last character or url must be '/'
     if (substr($url, -1) !== '/') {
         $ispwaStudio = checkPwaStudio($url . '/');
     } else {
         $ispwaStudio = checkPwaStudio($url);
     }
 }
+
+// Add www into base url
+if (!$ispwaStudio && strpos($url, 'www') === false) {
+    // in case:  url is not contain 'www' -> add 'www'
+    $parseUrl = parse_url(urlContainWww($url));
+    if (!$ispwaStudio) {
+        if (isset($parseUrl['path'])) {
+            if ($parseUrl['path'] !== '/') {
+                // if url is: https://abc.com/xyz/def/...  -> check at: https://abc.com/
+                $ispwaStudio = checkPwaStudio(str_replace($parseUrl['path'], '/', urlContainWww($url)));
+            }
+        }
+    }
+
+    if (!$ispwaStudio) {
+        // last character or url must be '/'
+        if (substr(urlContainWww($url), -1) !== '/') {
+            $ispwaStudio = checkPwaStudio(urlContainWww($url) . '/');
+        } else {
+            $ispwaStudio = checkPwaStudio(urlContainWww($url));
+        }
+    }
+}
+
+
 
 if ($ispwaStudio) {
     echo 'true';
@@ -107,4 +134,18 @@ function checkPwaStudio($url)
         }
     }
     return $ispwaStudio;
+}
+
+function urlContainWww($url)
+{
+    $newUrl = null;
+    // url is: https://... or http://...
+    if (strpos($url, 'www') === false) {
+        if (strpos($url, 'https') !== false) {
+            $newUrl = str_replace('https://', 'https://www.', $url);
+        } else {
+            $newUrl = str_replace('http://', 'http://www.', $url);
+        }
+    }
+    return $newUrl;
 }

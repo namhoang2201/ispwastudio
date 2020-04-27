@@ -15,13 +15,13 @@ $(document).ready(function () {
                     $('.loading').css('display', 'none');
                     $('.btn-check').css('display', 'block');
                     $('#urlInput').prop('readonly', false);
-                    $('.website-true').html(url.substring(0, url.length - 1))
+                    $('.website-true').html(url)
                     showTrueModal();
                 } else {
                     $('.loading').css('display', 'none');
                     $('.btn-check').css('display', 'block');
                     $('#urlInput').prop('readonly', false);
-                    $('.website-false').html(url.substring(0, url.length - 1))
+                    $('.website-false').html(url)
                     showFalseModal()
                 }
             },
